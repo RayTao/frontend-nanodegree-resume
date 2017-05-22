@@ -166,6 +166,10 @@ img {
     padding: 10px;
 }
 
+.round-face {
+    border-radius: 50%;
+}
+
 span {
     padding: 5px;
 }
