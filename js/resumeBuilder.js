@@ -1,4 +1,4 @@
-(function () {
+var resumeGlobalVars = (function () {
 
     "use strict";
 
@@ -65,7 +65,7 @@
                 header.prepend(element);
             });
 
-            var topcontacts = $('#topContacts');
+            var topContacts = $('#topContacts');
             var footerContacts = $("#footerContacts");
             var formattedMobile = HTMLmobile.replace(placeholderKey, bio.contacts.mobile);
             var formattedEmail = HTMLemail.replace(placeholderKey, bio.contacts.email);
@@ -73,7 +73,7 @@
             var formattedTwitter = HTMLtwitter.replace(placeholderKey, bio.contacts.twitter);
             var formattedLocation = HTMLlocation.replace(placeholderKey, bio.contacts.location);
             [formattedMobile, formattedEmail, formattedGithub, formattedTwitter, formattedLocation].forEach(function (element) {
-                topcontacts.append(element);
+                topContacts.append(element);
                 footerContacts.append(element);
             });
 
@@ -92,7 +92,7 @@
         }
     };
 
-    var project = {
+    var projects = {
         projects: [
             {
                 "title": "iOS Dev",
@@ -114,7 +114,7 @@
             var HTMLProject = $("#projects");
             HTMLProject.append(HTMLprojectStart);
             var projectEntry = $(".project-entry");
-            project.projects.forEach(function (project) {
+            projects.projects.forEach(function (project) {
                 var formattedTitle = HTMLprojectTitle.replace(placeholderKey, project.title);
                 var formattedDates = HTMLprojectDates.replace(placeholderKey, project.dates);
                 var formattedDes = HTMLprojectDescription.replace(placeholderKey, project.description);
@@ -196,7 +196,7 @@
     }
 
     function displayProject() {
-       project.display();
+       projects.display();
     }
 
     function displayEducation() {
@@ -230,7 +230,9 @@
     // }
     //
     // $("#main").append(internationalizeButton);
+    return [bio, education, work];
 }());
-
-
+var bio = resumeGlobalVars[0];
+var education = resumeGlobalVars[1];
+var work = resumeGlobalVars[2];
 
